@@ -1,0 +1,21 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+            {% if user.is_active %}
+                Active
+            {% else %}
+                Non Active
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

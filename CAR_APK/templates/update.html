@@ -1,0 +1,59 @@
+{% extends 'car_base.html' %}
+
+{% block title %}
+
+<title>Update | CarHub</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Update Car</h1>
+
+```
+<form method="POST">
+
+    <div class="mb-3">
+        <label class="form-label">Car Name</label>
+        <input type="text" class="form-control" name="name" value="{{ car.name }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Brand</label>
+        <input type="text" class="form-control" name="brand" value="{{ car.brand }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Model Year</label>
+        <input type="number" class="form-control" name="model_year" value="{{ car.model_year }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" value="{{ car.price }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Image URL</label>
+        <input type="text" class="form-control" name="image" value="{{ car.image }}">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" name="descreption" rows="4">{{ car.descreption }}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-warning">
+        Update Car
+    </button>
+
+    <a href="{{ url_for('car_list') }}" class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>
+```
+
+</div>
+
+{% endblock %}

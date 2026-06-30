@@ -1,0 +1,16 @@
+{% extends 'car_base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+{% if current_user.is_authenticated %}
+    <h3>Welcome {{ current_user.name }}</h3>
+    <a href="/logout">Logout</a>
+{% else %}
+    <h3>User Logged Out</h3>
+    <a href="/login">Login</a>
+{% endif %}
+{% block content %}
+<h1>Welcome to CarHub</h1>
+<p>Buy and Sell Cars Easily.</p>
+{% endblock %}

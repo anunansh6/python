@@ -1,0 +1,51 @@
+{% extends 'car_base.html' %}
+
+{% block title %}
+<title>Car List</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <form action="/car_list">
+        <label >Search</label>
+        <input type="text" name="search">
+        <button>Submit</button>
+    </form>
+
+    <div class="row">
+
+        {% for car in cars %}
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+
+                <img src="{{ car.image }}"
+                     class="card-img-top"
+                     alt="{{ car.name }}">
+
+                <div class="card-body">
+                    <h3>{{ car.name }}</h3>
+
+                    <p><strong>Brand:</strong> {{ car.brand }}</p>
+
+                    <p><strong>Year:</strong> {{ car.model_year }}</p>
+
+                    <p><strong>Price:</strong> ₹{{ car.price }}</p>
+
+                    <p>{{ car.descreption }}</p>
+                </div>
+
+            </div>
+        </div>
+
+        <a href="{{ url_for('update', id=car.id) }}"class="btn btn-warning">Update</a>
+        <a href="{{ url_for('delete', id=car.id) }}"class="btn btn-danger btn-sm">Delete</a>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

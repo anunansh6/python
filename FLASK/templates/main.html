@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Home</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px 0;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            padding: 40px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    
+    <header>
+        <h1>My Flask App</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/login">login</a>
+            <a href="/profile">profile</a>
+        </nav>
+    </header>
+
+<div class="container">
+    <h2>Welcome to Flask!</h2>
+    <p>This is your homepage template.</p>
+</div>
+{% block body  %}
+{% endblock %}
+</body>
+</html>

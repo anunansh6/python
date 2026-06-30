@@ -1,0 +1,21 @@
+[
+  {
+    "username": "rahul123",
+    "password": "Rahul@123",
+    "male_id": "M001",
+    "mobile": true
+
+  },
+  {
+    "username": "aman456",
+    "password": "Aman@456",
+    "male_id": "M002",
+    "mobile": "9123456780"
+  },
+  {
+    "username": "vikas789",
+    "password": "Vikas@789",
+    "male_id": "M003",
+    "mobile": "9988776655"
+  }
+]

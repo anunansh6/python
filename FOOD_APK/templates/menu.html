@@ -1,0 +1,60 @@
+{% extends 'food_base.html' %}
+
+{% block title %}
+<title>Foodie | Menu</title>
+{% endblock %}
+
+{% block content %}
+
+<form method="GET" action="/menu" class="search-form">
+    <input
+        type="text"
+        name="search"
+        placeholder="Search food..."
+        value="{{ search }}"
+    >
+    <button type="submit">🔍 Search</button>
+</form>
+
+{% for x in fe_data %}
+<div class="food-card">
+
+    <div class="img-box">
+        <img src="{{ x.image }}" alt="{{ x.name }}" class="food-img">
+
+        <span class="category-badge">
+            {{ x.category }}
+        </span>
+
+        <span class="heart">❤️</span>
+    </div>
+
+    <div class="food-info">
+
+        <h2>{{ x.name }}</h2>
+
+        <div class="rating">
+            ⭐⭐⭐⭐⭐ <span>(4.8)</span>
+        </div>
+
+        <p class="desc">
+            {{ x.description }}
+        </p>
+
+        <div class="bottom-row">
+            <h3>₹{{ x.price }}</h3>
+
+            <a href="/menu/{{ x.id }}" class="cart-btn">
+                Add to Cart
+            </a>
+        </div>
+
+    </div>
+
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+

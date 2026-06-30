@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block title %}
+    <title>CarHub</title>
+    {% endblock %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#f4f6f9;
+            font-family:'Segoe UI',sans-serif;
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+        }
+
+        /* Navbar */
+        .navbar{
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+            box-shadow:0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .navbar-brand{
+            font-size:1.8rem;
+            font-weight:700;
+            color:white !important;
+        }
+
+        .nav-link{
+            color:white !important;
+            margin-left:12px;
+            transition:0.3s;
+        }
+
+        .nav-link:hover{
+            color:#38bdf8 !important;
+        }
+
+        .register-btn{
+            background:#0ea5e9;
+            color:white !important;
+            border-radius:8px;
+            padding:8px 16px;
+        }
+
+        .register-btn:hover{
+            background:#0284c7;
+        }
+
+        /* Main Content */
+        .main-content{
+            flex:1;
+            padding:40px 20px;
+        }
+
+        /* Footer */
+        footer{
+            background:#0f172a;
+            color:white;
+            margin-top:auto;
+        }
+
+        .footer-top{
+            padding:40px 0;
+        }
+
+        .footer-title{
+            font-weight:700;
+            margin-bottom:15px;
+        }
+
+        .footer-link{
+            color:#cbd5e1;
+            text-decoration:none;
+            display:block;
+            margin-bottom:8px;
+        }
+
+        .footer-link:hover{
+            color:#38bdf8;
+        }
+
+        .footer-bottom{
+            border-top:1px solid rgba(255,255,255,0.1);
+            padding:15px 0;
+            text-align:center;
+            color:#94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="/">
+                🚗 CarHub
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/car_list">Cars</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_car">Add Car</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
+                    
+                    {% if current_user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            Logout
+                        </a>
+                    </li>
+
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-2">
+                        <a class="nav-link register-btn"
+                        href="/register">
+                            Register
+                        </a>
+                    </li>
+
+                    {% endif %}
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+
+    <main class="container main-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="container footer-top">
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <h5 class="footer-title">
+                        🚗 CarHub
+                    </h5>
+
+                    <p>
+                        Buy, Sell and Explore premium cars
+                        with a modern experience.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="footer-title">
+                        Quick Links
+                    </h5>
+
+                    <a href="/" class="footer-link">Home</a>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="/car_list" class="footer-link">Cars</a>
+                    <a href="/add_car" class="footer-link">ADD Car</a>
+                    <a href="/contact" class="footer-link">Contact</a>
+                    <a href="/logout" class="footer-link">Logout</a>
+                    <a href="/login" class="footer-link">Login</a>
+
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="footer-title">
+                        Contact
+                    </h5>
+
+                    <p>Email: info@carhub.com</p>
+                    <p>Phone: +91 9876543210</p>
+                    <p>Location: Jaipur, Rajasthan</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 CarHub. All Rights Reserved.
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>s
